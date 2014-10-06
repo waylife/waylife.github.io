@@ -2,6 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.13kbook.com/2014/10/06/about/</loc>
+    <lastmod>2014-10-06T12:00:26.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.13kbook.com/categories/index.html</loc>
+    <lastmod>2014-10-06T10:20:27.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.13kbook.com/search/index.html</loc>
+    <lastmod>2014-10-06T10:20:16.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.13kbook.com/tags/index.html</loc>
+    <lastmod>2014-10-06T10:14:49.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.13kbook.com/2014/10/06/hello-world/</loc>
     <lastmod>2014-10-06T07:15:44.000Z</lastmod>
   </url>

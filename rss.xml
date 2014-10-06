@@ -7,8 +7,46 @@
     <link>http://blog.13kbook.com/</link>
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[关注Android、WP、Java、C#、自我认知、程序安全等]]></description>
-    <pubDate>Mon, 06 Oct 2014 09:23:03 GMT</pubDate>
+    <pubDate>Mon, 06 Oct 2014 12:00:35 GMT</pubDate>
     <generator>http://zespia.tw/hexo/</generator>
+    
+    <item>
+      <title><![CDATA[关于我(About me)]]></title>
+      <link>http://blog.13kbook.com/2014/10/06/about/</link>
+      <guid>http://blog.13kbook.com/2014/10/06/about/</guid>
+      <pubDate>Mon, 06 Oct 2014 09:49:53 GMT</pubDate>
+      <description>
+      <![CDATA[个人自我描述(Personal Statement)]]>
+      
+      </description>
+      <content:encoded><![CDATA[<h2 id="关于我(About_Me)">关于我(About Me)</h2>
+<p>Android攻城师一枚(An android engineer at Beijing Sogou.Inc)  </p>
+<p>关注(Focus) Android,WP,Java,C#,Python,Cyber security,Internet of things,Intelligent devices.</p>
+<h3 id="社交网络(Social_Network)">社交网络(Social Network)</h3>
+<ol>
+<li>微博(weibo) <a href="http://weibo.com/waylife365" target="_blank" rel="external">http://weibo.com/waylife365</a>  </li>
+<li>Twitter <a href="http://twitter.com/waylife365" target="_blank" rel="external">http://twitter.com/waylife365</a>  </li>
+<li>LinkedIn <a href="http://www.linkedin.com/in/wangyunchina" target="_blank" rel="external">http://www.linkedin.com/in/wangyunchina</a>  </li>
+</ol>
+<h3 id="代码托管">代码托管</h3>
+<ol>
+<li>Github <a href="https://github.com/waylife" target="_blank" rel="external">https://github.com/waylife</a>  </li>
+<li>CodePlex <a href="https://www.codeplex.com/site/users/view/waylife" target="_blank" rel="external">https://www.codeplex.com/site/users/view/waylife</a>  </li>
+</ol>
+<h3 id="之前的博客(Blog_used_before,Order_by_Time_DESC)">之前的博客(Blog used before,Order by Time DESC)</h3>
+<ol>
+<li>博客园(cnblog) <a href="http://www.cnblogs.com/waylife/" target="_blank" rel="external">http://www.cnblogs.com/waylife/</a></li>
+<li>CSDN <a href="http://blog.csdn.net/waylife" target="_blank" rel="external">http://blog.csdn.net/waylife</a>  </li>
+<li>网易博客(Netease Blog) <a href="http://online19910326.blog.163.com" target="_blank" rel="external">http://online19910326.blog.163.com</a></li>
+</ol>
+<h3 id="联系(Contact)">联系(Contact)</h3>
+<ol>
+<li>E-mail:waylife365##gmail.com(for anti-spam,please replace ## with @)</li>
+</ol>
+<p>更新时间(Update time): 2014-10-6(2014 October 6st)<br>来自(From) <a href="http://blog.13kbook.com/about" target="_blank" rel="external">http://blog.13kbook.com/about</a></p>
+]]></content:encoded>
+      <comments>http://blog.13kbook.com/2014/10/06/about/#disqus_comments</comments>
+    </item>
     
     <item>
       <title><![CDATA[Hello World]]></title>
