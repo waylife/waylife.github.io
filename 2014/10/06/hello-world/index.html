@@ -19,6 +19,8 @@
       
     
     
+    <link rel="alternate" href="/rss.xml" title="RxRead&#39;s Blog" type="application/atom+xml">
+    
     
     <link rel="icon" href="/img/favicon.ico">
     
@@ -51,6 +53,8 @@
 						<li><a href="/">Home</a></li>
 					
 						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="">About</a></li>
 					
 					<li>
 					
@@ -144,7 +148,7 @@
   
 
   <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/rss.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -288,6 +292,27 @@ $(document).ready(function(){
 
 
 
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
 
 
 
