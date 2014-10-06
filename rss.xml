@@ -7,7 +7,7 @@
     <link>http://blog.13kbook.com/</link>
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[关注Android、WP、Java、C#、自我认知、程序安全等]]></description>
-    <pubDate>Mon, 06 Oct 2014 12:54:15 GMT</pubDate>
+    <pubDate>Mon, 06 Oct 2014 13:07:19 GMT</pubDate>
     <generator>http://zespia.tw/hexo/</generator>
     
     <item>
@@ -20,8 +20,13 @@
       
       </description>
       <content:encoded><![CDATA[<h2 id="关于我(About_Me)">关于我(About Me)</h2>
-<p>Android攻城师一枚(An android engineer at Beijing Sogou.Inc)  </p>
-<p>关注(Focus) Android,WP,Java,C#,Python,Cyber security,Internet of things,Intelligent devices.</p>
+<p>Android攻城师一枚(An android engineer at Beijing Sogou.Inc)<br><a href="http://www.sogou.com" target="_blank" rel="external">搜狗(Sogou)</a><br><a href="http://app.sogou.com" target="_blank" rel="external">搜狗市场(Appmall)</a>  </p>
+<h3 id="关注(Focus)：">关注(Focus)：</h3>
+<ol>
+<li>Android,WP,Java,C#,Python,Cyber security</li>
+<li>Internet of things,Intelligent devices.</li>
+<li>.etc</li>
+</ol>
 <h3 id="社交网络(Social_Network)">社交网络(Social Network)</h3>
 <ol>
 <li>微博(weibo) <a href="http://weibo.com/waylife365" target="_blank" rel="external">http://weibo.com/waylife365</a>  </li>
@@ -43,7 +48,10 @@
 <ol>
 <li>E-mail:waylife365##gmail.com(for anti-spam,please replace ## with @)</li>
 </ol>
-<p>更新时间(Update time): 2014-10-6(2014 October 6st)<br>来自(From) <a href="http://blog.13kbook.com/about" target="_blank" rel="external">http://blog.13kbook.com/about</a></p>
+<h2 id="更新时间(Update_time):">更新时间(Update time):</h2>
+<font color="red">2014-10-6(2014 October 6st) </font>
+
+<p>来自(From) <a href="http://blog.13kbook.com/about" target="_blank" rel="external">http://blog.13kbook.com/about</a></p>
 ]]></content:encoded>
       <comments>http://blog.13kbook.com/2014/10/06/about/#disqus_comments</comments>
     </item>
