@@ -2,9 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     
+    
   <url>
     <loc>http://blog.13kbook.com/2014/10/06/about/</loc>
-    <lastmod>2014-10-06T12:00:26.000Z</lastmod>
+    <lastmod>2014-10-06T12:01:17.000Z</lastmod>
     <data>
         <display>
         <title>关于我(About me)</title>
@@ -17,7 +18,7 @@
 <li>Twitter <a href="http://twitter.com/waylife365" target="_blank" rel="external">http://twitter.com/waylife365</a>  </li>
 <li>LinkedIn <a href="http://www.linkedin.com/in/wangyunchina" target="_blank" rel="external">http://www.linkedin.com/in/wangyunchina</a>  </li>
 </ol>
-<h3 id="代码托管">代码托管</h3>
+<h3 id="代码托管(Code_Management)">代码托管(Code Management)</h3>
 <ol>
 <li>Github <a href="https://github.com/waylife" target="_blank" rel="external">https://github.com/waylife</a>  </li>
 <li>CodePlex <a href="https://www.codeplex.com/site/users/view/waylife" target="_blank" rel="external">https://www.codeplex.com/site/users/view/waylife</a>  </li>
