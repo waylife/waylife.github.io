@@ -4,7 +4,7 @@
     
   <url>
     <loc>http://blog.13kbook.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/</loc>
-    <lastmod>2014-10-30T12:59:29.000Z</lastmod>
+    <lastmod>2014-10-30T13:00:30.000Z</lastmod>
     <data>
         <display>
         <title>应用市场高速下载以及网页端调起APP页面研究与实现</title>
@@ -32,7 +32,7 @@
 <p><a href="http://127.0.0.1:12307/godetail?downid=1&amp;packagename=com.sogou.map&amp;backtohome=ture" target="_blank" rel="external">http://127.0.0.1:12307/godetail?downid=1&amp;packagename=com.sogou.map&amp;backtohome=ture</a><br>backtohome为true时，按下手机端的返回按钮回到应用的主页，为false时返回浏览器。（可参考豌豆荚，比如(<a href="http://www.wandoujia.com/apps/com.tencent.mm)[http://www.wandoujia.com/apps/com.tencent.mm]必须手机端访问，User-Agent与PC访问不同）" target="_blank" rel="external">http://www.wandoujia.com/apps/com.tencent.mm)[http://www.wandoujia.com/apps/com.tencent.mm]必须手机端访问，User-Agent与PC访问不同）</a>  </p>
 <h2 id="安装包应用捆绑">安装包应用捆绑</h2>
 <p>如何识别捆绑的是哪个应用呢？<br>后续参考竞品的实现方式，通过下载文件名不同（文件名有规则）的文件，在用户安装应用并且打开后去读取下载文件夹，判断是否存在符合规则的apk。如果存在，提取相应的id，去进行相应的下载。只要服务器提供接口让浏览器在下载同一个文件显示为不同的文件名即可。<br>比如搜狗手机助手的一个微信详情地址为<a href="http://wap.sogou.com/app/apkdetail.jsp?ppid=34&amp;cid=49&amp;docid=8271386494777466339&amp;e=1394" target="_blank" rel="external">http://wap.sogou.com/app/apkdetail.jsp?ppid=34&amp;cid=49&amp;docid=8271386494777466339&amp;e=1394</a>，高速下载安装包的地址是<a href="http://download.zhushou.sogou.com/zhushou/android/MobileTools.apk?dn=MobileTools_8271386494777466339_71.apk" target="_blank" rel="external">http://download.zhushou.sogou.com/zhushou/android/MobileTools.apk?dn=MobileTools_8271386494777466339_71.apk</a><br>下载下来的apk名称为MobileTools_8271386494777466339_71.apk。捆绑的应用id为8271386494777466339，应用为微信。通过设置HTTP返回数据的headers的<code>Content-Disposition</code>字段为<code>attachment;filename=&quot;MobileTools_8271386494777466339_71.apk&quot;</code>就可以实现，一般来说，主流浏览器都支持该属性。  </p>
-<p>因此，最终确定，APK的命名方式为SogouAppmall_binding_downid_9.apk，判断应用为这种格式（可通过正则匹配）就会提取downid（downid必须为整数）。应用未安装时，点击高速下载，下载以上规则命名的apk到文件夹。用户安装应用并打开应用时，去扫描常用的下载文件夹（常见的/download,/downloads,以及浏览器下载文件夹等）里面的apk，有符合规则的则提取某一个文件中的id，提取完成之后，进行下载，同时把安装包删除（防止对之后进行干扰）。考虑到同一个文件夹可能有多个符合规则的安装包，则按照时间顺序取当前文件夹符合规则的时间最近的两个，其他的文件夹的忽略，等下次启动再处理（一般这种情况也比较少）。当然还有其他一些细节需要处理，此处不再详谈。  </p>
+<p>因此，最终确定，APK的命名方式为XXXX_binding_downid_9.apk，判断应用为这种格式（可通过正则匹配）就会提取downid（downid必须为整数）。应用未安装时，点击高速下载，下载以上规则命名的apk到文件夹。用户安装应用并打开应用时，去扫描常用的下载文件夹（常见的/download,/downloads,以及浏览器下载文件夹等）里面的apk，有符合规则的则提取某一个文件中的id，提取完成之后，进行下载，同时把安装包删除（防止对之后进行干扰）。考虑到同一个文件夹可能有多个符合规则的安装包，则按照时间顺序取当前文件夹符合规则的时间最近的两个，其他的文件夹的忽略，等下次启动再处理（一般这种情况也比较少）。当然还有其他一些细节需要处理，此处不再详谈。  </p>
 <h1 id="4-性能优化与展望">4.性能优化与展望</h1>
 <p>程序优化，是有追求的攻城师必须做的事情，因此，当然要优化喽。<br>为了省电，指定了以下两条策略。  </p>
 <ol>
