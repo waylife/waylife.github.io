@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>搜狗市场高速下载以及网页端调起APP页面研究与实现 | RxRead&#39;s Blog</title>
+    <title>应用市场高速下载以及网页端调起APP页面研究与实现 | RxRead&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="RxRead">
     
-    <meta name="description" content="好久没写博客了，好大一个坑。正好，最近刚做完搜狗市场的高速下载功能，便拿来填了这个坑。话说产品为了增加用户量，提升用户活跃度以及配合推广，更坑爹的是看到其他市场也有这些功能，等等，要求做一个捆绑下载的功能。WTF。当然吐槽归吐槽，任务还是要完成的。具体要求是：用户在手机浏览WAP站点的时候，1.进入">
+    <meta name="description" content="好久没写博客了，好大一个坑。正好，最近刚做完应用市场的高速下载功能，便拿来填了这个坑。话说产品为了增加用户量，提升用户活跃度以及配合推广，更坑爹的是看到其他市场也有这些功能，等等，要求做一个捆绑下载的功能。WTF。当然吐槽归吐槽，任务还是要完成的。具体要求是：用户在手机浏览WAP站点的时候，1.进入">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="waylife365" />
-    <meta name="twitter:title" content="搜狗市场高速下载以及网页端调起APP页面研究与实现 | RxRead&#39;s Blog" />
+    <meta name="twitter:title" content="应用市场高速下载以及网页端调起APP页面研究与实现 | RxRead&#39;s Blog" />
       
     
     
@@ -75,7 +75,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/10/27/appmall_highspeeddownload_and_app_invoke/" title="搜狗市场高速下载以及网页端调起APP页面研究与实现" itemprop="url">搜狗市场高速下载以及网页端调起APP页面研究与实现</a>
+      <a href="/2014/10/27/appmall_highspeeddownload_and_app_invoke/" title="应用市场高速下载以及网页端调起APP页面研究与实现" itemprop="url">应用市场高速下载以及网页端调起APP页面研究与实现</a>
   </h1>
   <p class="article-author">By
     
@@ -83,7 +83,7 @@
     </p>
   <p class="article-time">
     <time datetime="2014-10-27T15:05:53.000Z" itemprop="datePublished">10月 27 2014</time>
-    更新日期:<time datetime="2014-10-28T12:40:07.000Z" itemprop="dateModified">10月 28 2014</time>
+    更新日期:<time datetime="2014-10-30T12:59:29.000Z" itemprop="dateModified">10月 30 2014</time>
     
   </p>
 </header>
@@ -95,7 +95,7 @@
 		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-功能需求"><span class="toc-number">1.</span> <span class="toc-text">1.功能需求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-竞品分析"><span class="toc-number">2.</span> <span class="toc-text">2.竞品分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-最后方案"><span class="toc-number">3.</span> <span class="toc-text">3.最后方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#调起客户端"><span class="toc-number">3.1.</span> <span class="toc-text">调起客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-高速下载"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.高速下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-打开详情页面"><span class="toc-number">3.1.2.</span> <span class="toc-text">2.打开详情页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装包应用捆绑"><span class="toc-number">3.2.</span> <span class="toc-text">安装包应用捆绑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-性能优化与展望"><span class="toc-number">4.</span> <span class="toc-text">4.性能优化与展望</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-最终实现"><span class="toc-number">5.</span> <span class="toc-text">5.最终实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-相关工具以及附录"><span class="toc-number">6.</span> <span class="toc-text">6.相关工具以及附录</span></a></li></ol>
 		</div>
 		
-		<p>好久没写博客了，好大一个坑。正好，最近刚做完搜狗市场的高速下载功能，便拿来填了这个坑。<br>话说产品为了增加用户量，提升用户活跃度以及配合推广，更坑爹的是看到其他市场也有这些功能，等等，要求做一个捆绑下载的功能。WTF。<br>当然吐槽归吐槽，任务还是要完成的。<br>具体要求是：<br>用户在手机浏览WAP站点的时候，<del><strong><em>1.进入应用详情页时打开本应用(搜狗市场)里面的详情页面 2.点击WAP端高速下载时，如果本应用已安装，则调用本应用进行下载，否则下载本应用的捆绑包，安装完成之后，在本应用打开时去下载之前用户想下载的应用。</em></strong></del><br>如何实现这两个功能呢？以下逐步分析：  </p>
+		<p>好久没写博客了，好大一个坑。正好，最近刚做完应用市场的高速下载功能，便拿来填了这个坑。<br>话说产品为了增加用户量，提升用户活跃度以及配合推广，更坑爹的是看到其他市场也有这些功能，等等，要求做一个捆绑下载的功能。WTF。<br>当然吐槽归吐槽，任务还是要完成的。<br>具体要求是：<br>用户在手机浏览WAP站点的时候，<del><strong><em>1.进入应用详情页时打开本应用(应用市场)里面的详情页面 2.点击WAP端高速下载时，如果本应用已安装，则调用本应用进行下载，否则下载本应用的捆绑包，安装完成之后，在本应用打开时去下载之前用户想下载的应用。</em></strong></del><br>如何实现这两个功能呢？以下逐步分析：  </p>
 <h1 id="1-功能需求">1.功能需求</h1>
 <p>如之前所描述。<br>一般来说，完成之前的两个功能，一般都是需要应用已安装并且在后台运行(最简单的理解就是应用打开过应用，并且没有被其他程序杀死)，因此此处也默认这种情形才算应用已安装；否则，一概认为是未安装（以下没有特别说明，均为这种情况）。</p>
 <h1 id="2-竞品分析">2.竞品分析</h1>
@@ -111,7 +111,7 @@
 <li><strong>高速下载原理</strong> 豌豆荚没有实现在应用已安装情形下调用客户端进行下载，在点击下载时，询问用是下载捆绑包还是直接下载想要下载的应用（描述文案见文末附图，文案有诱导性）。选择下载捆绑包，则下载一个特定文件名的豌豆荚安装包。在安装完成之后，去扫描特定的目录（一般是download以及常见浏览器的下载目录），如果存在符合规则的文件，则提取相关的资源ID，后续再下载捆绑的APP。<br>在应用没有安装的情形下。而百度手机与搜狗手机助手点击高速下载（名字也有诱导），则直接下载一个APP，所有APP内容一样，但是APP名字有所不同，均类似于app_捆绑id_xx.apk，比如搜狗手机助手捆绑微信的为MobileTools_8271386494777466339_71.apk，捆绑其他包的捆绑id有所不同。其他流程同豌豆荚。如果存在多个符合条件的apk，搜狗手机助手则取最新的信息进行下载，百度手机助手没有研究。<br>如果手机APP已经安装。豌豆荚没有实现，而百度手机助手以及搜狗手机助手，则是浏览器网页直接请求一个回环地址(127.0.0.1:port/actionpath?parameter)，port为端口地址，百度手机助手为6259，搜狗手机助手为12388。actionpath为需要进行的操作，不同的操作，值也不一致 parameter为相关操作的参数，在这里把需要捆绑下载的APP数据传过去。手机APP通过应用内的HTTP服务器接收到相关数据后进行应用下载，同时返回相应的数据。  </li>
 </ol>
 <h1 id="3-最后方案">3.最后方案</h1>
-<p><strong>调起详情页面</strong>，采用HTTP服务器以及自定义协议两种都可以，而且自定义协议不用一直在后台跑一个承载HTTP服务器的Service，会比较省电。<br>后续的<strong>高速下载</strong>，豌豆荚是没有了，既然之前说到自定义协议省电，能否考虑呢？再结合需求，看下，应用未安装的情形下，直接下载捆绑包，两种都没有问题；应用已安装的情形，调起客户端进行下载。自定义协议可以做到么？如何知道应用是否安装了呢？浏览器有相应的API么？显然没有，就算有，也只可能部分有，但是要支持所有的浏览器。唯一的办法就是通过访问HTTP服务器，同时设置超时时间，一定时候内没有响应则认为应用未安装，下载相应的捆绑包。而且，通过HTTP服务器后续扩展也好，可以通过网页服务器与Web进行双向互动，比如百度手机助手可以通过web获得位置信息。而自定义协议就显然做不到这些。当然除了省电。<br>高速下载的调起解决了，那如果应用没有安装，在本应用安装完成之后，如何知道之前用户需要下载的是哪个应用呢？也就是<strong>捆绑应用的识别</strong>。<br>搜狗市场最开始的方案是在应用里面（asset文件夹下）打入一个文件，存放有捆绑应用的id号。但是，针对少量应用可以（最开始为了测试捆绑效果时用过），目前来说，针对大量应用肯定不行，需要打大量的包，而且需要不少存储空间。<br>参考竞品的方案，确实很完美，但是，考虑目前大部分的手机安全或者清理软件，都会在应用安装成功后提示删除安装包，同时，浏览器的下载目录可能会会变。那这里能扫描整个SD卡，去寻找符合条件的文件么？肯定不行，太消耗时间了。<br>那在应用没有安装或者没有在后台运行的情形下，如何知道捆绑的应用id呢。以上两个方案都不完美，如何解决。与后端彦飞探讨过，在高速下载apk时，网页记录手机下载的捆绑app id以及packagename以及该设备的唯一id（uuid），然后在打开市场时，请求相应的接口并把uuid传入，获得数据，从而下载相应的应用。想法超赞，后来发现没有实用价值，uuid暂时没有一个合理的方案。关键在于两端生成的都要唯一，mac，ip？如何生成？<br>后来吃饭与国畅探讨后，考虑是不是可以调用本地代码去执行相关任务？但仔细思考过后，发现这个一般是WebView与js进行交互。而目前的使用场景根本就无法做到。这个Webview必须要是自己应用内的才可以。<br>考虑多方面因素，最后决定，参考百度手机助手以及搜狗手机助手的方案，尽管有缺陷。<br>关于自定义协议模式，可参考此文章，<a href="http://www.oschina.net/code/snippet_256033_35330" target="_blank" rel="external">android自定义协议和html加载时自动尝试调用本地APP</a>，以及<a href="http://www.pocketdigi.com/20101002/117.html" target="_blank" rel="external">Android 注册监听自定义协议</a>，本文不做过多介绍。<br><del><strong><em>最后的方案就是手机端后台通过Service运行一个HttpServer，监听12307端口。</em></strong></del></p>
+<p><strong>调起详情页面</strong>，采用HTTP服务器以及自定义协议两种都可以，而且自定义协议不用一直在后台跑一个承载HTTP服务器的Service，会比较省电。<br>后续的<strong>高速下载</strong>，豌豆荚是没有了，既然之前说到自定义协议省电，能否考虑呢？再结合需求，看下，应用未安装的情形下，直接下载捆绑包，两种都没有问题；应用已安装的情形，调起客户端进行下载。自定义协议可以做到么？如何知道应用是否安装了呢？浏览器有相应的API么？显然没有，就算有，也只可能部分有，但是要支持所有的浏览器。唯一的办法就是通过访问HTTP服务器，同时设置超时时间，一定时候内没有响应则认为应用未安装，下载相应的捆绑包。而且，通过HTTP服务器后续扩展也好，可以通过网页服务器与Web进行双向互动，比如百度手机助手可以通过web获得位置信息。而自定义协议就显然做不到这些。当然除了省电。<br>高速下载的调起解决了，那如果应用没有安装，在本应用安装完成之后，如何知道之前用户需要下载的是哪个应用呢？也就是<strong>捆绑应用的识别</strong>。<br>应用市场最开始的方案是在应用里面（asset文件夹下）打入一个文件，存放有捆绑应用的id号。但是，针对少量应用可以（最开始为了测试捆绑效果时用过），目前来说，针对大量应用肯定不行，需要打大量的包，而且需要不少存储空间。<br>参考竞品的方案，确实很完美，但是，考虑目前大部分的手机安全或者清理软件，都会在应用安装成功后提示删除安装包，同时，浏览器的下载目录可能会会变。那这里能扫描整个SD卡，去寻找符合条件的文件么？肯定不行，太消耗时间了。<br>那在应用没有安装或者没有在后台运行的情形下，如何知道捆绑的应用id呢。以上两个方案都不完美，如何解决。与后端彦飞探讨过，在高速下载apk时，网页记录手机下载的捆绑app id以及packagename以及该设备的唯一id（uuid），然后在打开市场时，请求相应的接口并把uuid传入，获得数据，从而下载相应的应用。想法超赞，后来发现没有实用价值，uuid暂时没有一个合理的方案。关键在于两端生成的都要唯一，mac，ip？如何生成？<br>后来吃饭与国畅探讨后，考虑是不是可以调用本地代码去执行相关任务？但仔细思考过后，发现这个一般是WebView与js进行交互。而目前的使用场景根本就无法做到。这个Webview必须要是自己应用内的才可以。<br>考虑多方面因素，最后决定，参考百度手机助手以及搜狗手机助手的方案，尽管有缺陷。<br>关于自定义协议模式，可参考此文章，<a href="http://www.oschina.net/code/snippet_256033_35330" target="_blank" rel="external">android自定义协议和html加载时自动尝试调用本地APP</a>，以及<a href="http://www.pocketdigi.com/20101002/117.html" target="_blank" rel="external">Android 注册监听自定义协议</a>，本文不做过多介绍。<br><del><strong><em>最后的方案就是手机端后台通过Service运行一个HttpServer，监听12307端口。</em></strong></del></p>
 <h2 id="调起客户端">调起客户端</h2>
 <h3 id="1-高速下载">1.高速下载</h3>
 <p>网页端点击高速下载时，访问<a href="http://127.0.0.1:12307/appdown?downid=1&amp;packagename=com.sogou.map" target="_blank" rel="external">http://127.0.0.1:12307/appdown?downid=1&amp;packagename=com.sogou.map</a><br>如果成功，返回json串形式为<br>{<br>  “status”:1,<br>  “message”:”OK”<br>}<br>status为0表示失败，status为1表示成功。message为具体描述。<br>如果在一定时间内手机没有响应，则默认应用没有安装，下载捆绑APK包。<br>如果手机端响应了，则网页端不做任何处理，手机端获得相应的downid以及packagename，先判断应用是否已经安装，如果安装，则提示应用已安装，如果未安装，则提示用户应用正在下载，然后加入下载列表。  </p>
@@ -154,7 +154,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://blog.13kbook.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/" data-title="搜狗市场高速下载以及网页端调起APP页面研究与实现 | RxRead&#39;s Blog" data-tsina="723678706" class="share clearfix">
+  <div data-url="http://blog.13kbook.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/" data-title="应用市场高速下载以及网页端调起APP页面研究与实现 | RxRead&#39;s Blog" data-tsina="723678706" class="share clearfix">
   </div>
 
 </div>
