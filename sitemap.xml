@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.13kbook.com/2014/11/11/python_webpage_crawling/</loc>
+    <lastmod>2014-11-11T14:50:14.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.13kbook.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/</loc>
     <lastmod>2014-11-09T03:58:37.000Z</lastmod>
   </url>

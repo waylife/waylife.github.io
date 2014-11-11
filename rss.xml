@@ -7,8 +7,55 @@
     <link>http://blog.13kbook.com/</link>
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[关注Android、WP、Java、C#、自我认知、程序安全等]]></description>
-    <pubDate>Sun, 09 Nov 2014 03:59:42 GMT</pubDate>
+    <pubDate>Tue, 11 Nov 2014 14:50:59 GMT</pubDate>
     <generator>http://zespia.tw/hexo/</generator>
+    
+    <item>
+      <title><![CDATA[Python抓取单个网页中所有的PDF文档]]></title>
+      <link>http://blog.13kbook.com/2014/11/11/python_webpage_crawling/</link>
+      <guid>http://blog.13kbook.com/2014/11/11/python_webpage_crawling/</guid>
+      <pubDate>Tue, 11 Nov 2014 13:49:53 GMT</pubDate>
+      <description>
+      <![CDATA[<h1 id="1-背景">1.背景</h1>
+<p>最近发现算法以及数据结构落下了不少（其实还是大学没怎么好好学，囧rz），考虑到最近的项目结构越来越复杂了，用它来练练思路，就打算复习下数据结构与算法。结合最近在学英语，然后干脆就用英文喽。然后选定一本参考书籍《Data Str]]>
+      </description>
+      <content:encoded><![CDATA[<h1 id="1-背景">1.背景</h1>
+<p>最近发现算法以及数据结构落下了不少（其实还是大学没怎么好好学，囧rz），考虑到最近的项目结构越来越复杂了，用它来练练思路，就打算复习下数据结构与算法。结合最近在学英语，然后干脆就用英文喽。然后选定一本参考书籍《Data Structures and Algorithms in Java》。<br>刚开始看还是蛮吃力的，慢慢来。由于之前有翻录书籍附录的习惯，于是就去书籍附带的官网看了下，发现<a href="http://ww0.java4.datastructures.net/handouts/" target="_blank" rel="external">http://ww0.java4.datastructures.net/handouts/</a> 里面附带的PDF文档居然不错，图文并茂，作为理解是个不错的材料，果断要下载啊。但是，尼玛，结果发现，好多个，这一个一个另存为真是要命，想想还是用什么办法下载下来吧。</p>
+<h1 id="2-实现">2.实现</h1>
+<p>考虑目前学过的了解的所有语言，可以用来实现的，排列一下程度：</p>
+<ol>
+<li>Java/Android  熟悉</li>
+<li>C# 熟悉</li>
+<li>Python 了解语法</li>
+<li>Javascript 了解一些  </li>
+<li>C/C++ 了解语法</li>
+</ol>
+<p>为了实现这个，当然是最简单最快最好了。考虑到大学一直用C#，要不用它？但发现OSX平台只能用Mono了，还得重新熟悉。Java实现也不快，从需要的时间考虑。Javascript不熟，貌似可以用node.js去写(atom就是用的它)。不熟。C/C++好多年没用过了，而且，实现起来代码一大堆，特别麻烦。再考虑之前一段时间正好在Codecademy学过语法，就拿它来练手吧。<br>OK，确定了用Python。后续就是怎么去请求网络了，解析网页html标签，提取下载链接，下载文件了。虽然不懂这些在Python里面是怎么实现的，但是流程是确定的，按照流程去网站找现成的，此处不研究原理，实现功能即可。<br>接下来就是各种搜索引擎搜索东西了，Google可，百度亦可（不同引擎侧重不一样）。不要忘了目的是什么，搜索相关的资料。<br>好了，搜索之后，确定请求网络下载网页用requests，解析html用BeautifulSoup，提取下载链接BeautifulSoup，下载文档（stackoverflow中找到了一段下载文件的代码）。<br>然后就是把她们一起组合了。组合之后的代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#file-name: pdf_download.py</span></div><div class="line">__author__ = <span class="string">'rxread'</span></div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">download_file</span><span class="params">(url, index)</span>:</span></div><div class="line">    local_filename = index+<span class="string">"-"</span>+url.split(<span class="string">'/'</span>)[-<span class="number">1</span>]</div><div class="line">    <span class="comment"># NOTE the stream=True parameter</span></div><div class="line">    r = requests.get(url, stream=<span class="keyword">True</span>)</div><div class="line">    <span class="keyword">with</span> open(local_filename, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">        <span class="keyword">for</span> chunk <span class="keyword">in</span> r.iter_content(chunk_size=<span class="number">1024</span>):</div><div class="line">            <span class="keyword">if</span> chunk: <span class="comment"># filter out keep-alive new chunks</span></div><div class="line">                f.write(chunk)</div><div class="line">                f.flush()</div><div class="line">    <span class="keyword">return</span> local_filename</div><div class="line"></div><div class="line"><span class="comment">#http://ww0.java4.datastructures.net/handouts/</span></div><div class="line">root_link=<span class="string">"http://ww0.java4.datastructures.net/handouts/"</span></div><div class="line">r=requests.get(root_link)</div><div class="line"><span class="keyword">if</span> r.status_code==<span class="number">200</span>:</div><div class="line">    soup=BeautifulSoup(r.text)</div><div class="line">    <span class="comment"># print soup.prettify()</span></div><div class="line">    index=<span class="number">1</span></div><div class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> soup.find_all(<span class="string">'a'</span>):</div><div class="line">        new_link=root_link+link.get(<span class="string">'href'</span>)</div><div class="line">        <span class="keyword">if</span> new_link.endswith(<span class="string">".pdf"</span>):</div><div class="line">            file_path=download_file(new_link,str(index))</div><div class="line">            <span class="keyword">print</span> <span class="string">"downloading:"</span>+new_link+<span class="string">" -&gt; "</span>+file_path</div><div class="line">            index+=<span class="number">1</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"all download finished"</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"errors occur."</span></div></pre></td></tr></table></figure>
+
+<p>运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python pdf_download.py</div></pre></td></tr></table></figure>
+
+<p>便可以把所有的pdf文档下载到本地。</p>
+<h1 id="3-优化">3.优化</h1>
+<p>30多行代码，全部搞定，真是简洁明了，果然做Python用来一些脚本任务还是不错的。利用它下载了41个文档。<br>最开始下载下来的文档没有序号，这样看的时候就不知道先后，于是我给文件名前面加了个序号。<br>其他的优化部分可以参考如下：</p>
+<ol>
+<li>考虑现在函数的一些异常出错没有处理，后续需要处理。</li>
+<li>函数没有完全封装，下载的文件类型支持不多，这个后续可以根据自己的需求进行扩展。  </li>
+<li>下载的文件少的时候可能这样就行了，但是文件多的话，是有必要使用多个线程（适量的数量）或者线程池去下载，从而加快下载速度。  </li>
+<li>有些写法可能不符合python语法规范，当然写了与没写已经是0和1的区别了。</li>
+<li>其他细节，比如pdf有可能是大写的PDF。  </li>
+</ol>
+<h1 id="4-附录">4.附录</h1>
+<ol>
+<li>《Data Structures and Algorithms in Java》(Michael T. Goodrich, Roberto Tamassia)下载 <a href="http://bookzz.org/" target="_blank" rel="external">http://bookzz.org/</a> 或者 <a href="http://it-ebooks.info/" target="_blank" rel="external">http://it-ebooks.info/</a><br>以下两个网站都是不错的书籍下载网站，有条件还是买本正版书籍支持一下作者吧。<br>一般我会先下载电子书看下，合适就买纸质版。  </li>
+<li>Python语法入门 <a href="http://www.codecademy.com/zh/tracks/python" target="_blank" rel="external">http://www.codecademy.com/zh/tracks/python</a>  </li>
+</ol>
+<p>以上，便是如此了。  </p>
+<p>本文来自<a href="&quot;http://waylife.github.io&quot;">RxRead’s Blog</a>,欢迎转载，转载请注明。<br>欢迎一起交流探讨。</p>
+]]></content:encoded>
+      <comments>http://blog.13kbook.com/2014/11/11/python_webpage_crawling/#disqus_comments</comments>
+    </item>
     
     <item>
       <title><![CDATA[应用市场高速下载以及网页端调起APP页面研究与实现]]></title>
