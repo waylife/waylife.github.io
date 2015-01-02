@@ -678,7 +678,8 @@ header nav ul li a:hover {
 }
 /* page layout */
 @media only screen and (min-width: 1024px) {
-  .page {
+  .page,
+  .resume {
     margin-left: 10% !important;
   }
 }
@@ -779,15 +780,18 @@ header nav ul li a:hover {
   min-height: 400px;
 }
 .post,
-.page {
+.page,
+.resume {
   background: #fafafa;
 }
 .post a,
-.page a {
+.page a,
+.resume a {
   color: #2ca6cb;
 }
 .post a:hover,
-.page a:hover {
+.page a:hover,
+.resume a:hover {
   color: #1291e2;
 }
 @media only screen and (min-width: 768px) {
