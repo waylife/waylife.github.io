@@ -4,16 +4,16 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title><![CDATA[RxRead's Blog]]></title>
-    <link>http://blog.13kbook.com/</link>
+    <link>http://blog.zanlabs.com/</link>
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[关注Android、WP、Java、C#、自我认知、程序安全等]]></description>
-    <pubDate>Sat, 03 Jan 2015 15:17:25 GMT</pubDate>
+    <pubDate>Sat, 10 Jan 2015 17:11:01 GMT</pubDate>
     <generator>http://zespia.tw/hexo/</generator>
     
     <item>
       <title><![CDATA[Pacman主题下给Hexo增加简历类型]]></title>
-      <link>http://blog.13kbook.com/2015/01/02/add-resume-type-to-hexo-under-pacman-theme/</link>
-      <guid>http://blog.13kbook.com/2015/01/02/add-resume-type-to-hexo-under-pacman-theme/</guid>
+      <link>http://blog.zanlabs.com/2015/01/02/add-resume-type-to-hexo-under-pacman-theme/</link>
+      <guid>http://blog.zanlabs.com/2015/01/02/add-resume-type-to-hexo-under-pacman-theme/</guid>
       <pubDate>Fri, 02 Jan 2015 15:23:59 GMT</pubDate>
       <description>
       <![CDATA[<h1 id="背景">背景</h1>
@@ -43,13 +43,13 @@
 <h1 id="总结">总结</h1>
 <p>不仅仅可以增加resume属性，也可以增加其他的来扩展更多的自定义页面，比如404页面。<br>花了一晚上时间研究，虽然在—-三个-处耽误了不少时间，还是蛮有趣的。<br>有任何问题欢迎向我反馈。<br>源码我已经放在<a href="https://github.com/waylife/pacman_with_resume" target="_blank" rel="external">Github</a>上了，欢迎star以及fork。  </p>
 ]]></content:encoded>
-      <comments>http://blog.13kbook.com/2015/01/02/add-resume-type-to-hexo-under-pacman-theme/#disqus_comments</comments>
+      <comments>http://blog.zanlabs.com/2015/01/02/add-resume-type-to-hexo-under-pacman-theme/#disqus_comments</comments>
     </item>
     
     <item>
       <title><![CDATA[Python抓取单个网页中所有的PDF文档]]></title>
-      <link>http://blog.13kbook.com/2014/11/11/python-webpage-crawling/</link>
-      <guid>http://blog.13kbook.com/2014/11/11/python-webpage-crawling/</guid>
+      <link>http://blog.zanlabs.com/2014/11/11/python-webpage-crawling/</link>
+      <guid>http://blog.zanlabs.com/2014/11/11/python-webpage-crawling/</guid>
       <pubDate>Tue, 11 Nov 2014 13:49:53 GMT</pubDate>
       <description>
       <![CDATA[<h1 id="1-背景">1.背景</h1>
@@ -90,13 +90,13 @@
 <p>以上，便是如此了。  </p>
 <p>本文来自<a href="&quot;http://waylife.github.io&quot;">RxRead’s Blog</a>,欢迎转载，转载请注明。<br>欢迎一起交流探讨。</p>
 ]]></content:encoded>
-      <comments>http://blog.13kbook.com/2014/11/11/python-webpage-crawling/#disqus_comments</comments>
+      <comments>http://blog.zanlabs.com/2014/11/11/python-webpage-crawling/#disqus_comments</comments>
     </item>
     
     <item>
       <title><![CDATA[应用市场高速下载以及网页端调起APP页面研究与实现]]></title>
-      <link>http://blog.13kbook.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/</link>
-      <guid>http://blog.13kbook.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/</guid>
+      <link>http://blog.zanlabs.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/</link>
+      <guid>http://blog.zanlabs.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/</guid>
       <pubDate>Mon, 27 Oct 2014 15:05:53 GMT</pubDate>
       <description>
       <![CDATA[<p>好久没写博客了，好大一个坑。正好，最近刚做完应用市场的高速下载功能，便拿来填了这个坑。<br>话说产品为了增加用户量，提升用户活跃度以及配合推广，更坑爹的是看到其他市场也有这些功能，等等，要求做一个捆绑下载的功能。WTF。<br>当然吐槽归吐槽，任务还是要完成的。<br>具]]>
@@ -145,13 +145,13 @@
 <p>哈哈哈哈，完美解决所有问题。之后还可以扩展。<br><img src="https://github.com/waylife/blogimage/raw/master/common/quick_run.gif" alt=" "><br><img src="https://github.com/waylife/blogimage/raw/master/common/simle_1.gif" alt=""></p>
 <p>本文来自<a href="http://waylife.github.io" target="_blank" rel="external">RxRead’s Blog</a>,欢迎转载，转载请注明。  </p>
 ]]></content:encoded>
-      <comments>http://blog.13kbook.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/#disqus_comments</comments>
+      <comments>http://blog.zanlabs.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/#disqus_comments</comments>
     </item>
     
     <item>
       <title><![CDATA[Hello World]]></title>
-      <link>http://blog.13kbook.com/2014/10/06/hello-world/</link>
-      <guid>http://blog.13kbook.com/2014/10/06/hello-world/</guid>
+      <link>http://blog.zanlabs.com/2014/10/06/hello-world/</link>
+      <guid>http://blog.zanlabs.com/2014/10/06/hello-world/</guid>
       <pubDate>Mon, 06 Oct 2014 07:15:44 GMT</pubDate>
       <description>
       <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
@@ -175,7 +175,7 @@
 
 <p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content:encoded>
-      <comments>http://blog.13kbook.com/2014/10/06/hello-world/#disqus_comments</comments>
+      <comments>http://blog.zanlabs.com/2014/10/06/hello-world/#disqus_comments</comments>
     </item>
     
   </channel>
