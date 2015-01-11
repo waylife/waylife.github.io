@@ -7,7 +7,7 @@
     <link>http://blog.zanlabs.com/</link>
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[关注Android、WP、Java、C#、自我认知、程序安全等]]></description>
-    <pubDate>Sat, 10 Jan 2015 17:25:35 GMT</pubDate>
+    <pubDate>Sun, 11 Jan 2015 13:26:17 GMT</pubDate>
     <generator>http://zespia.tw/hexo/</generator>
     
     <item>
@@ -95,8 +95,8 @@
     
     <item>
       <title><![CDATA[应用市场高速下载以及网页端调起APP页面研究与实现]]></title>
-      <link>http://blog.zanlabs.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/</link>
-      <guid>http://blog.zanlabs.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/</guid>
+      <link>http://blog.zanlabs.com/2014/10/27/appmall-highspeeddownload-and-app-invoke/</link>
+      <guid>http://blog.zanlabs.com/2014/10/27/appmall-highspeeddownload-and-app-invoke/</guid>
       <pubDate>Mon, 27 Oct 2014 15:05:53 GMT</pubDate>
       <description>
       <![CDATA[<p>好久没写博客了，好大一个坑。正好，最近刚做完应用市场的高速下载功能，便拿来填了这个坑。<br>话说产品为了增加用户量，提升用户活跃度以及配合推广，更坑爹的是看到其他市场也有这些功能，等等，要求做一个捆绑下载的功能。WTF。<br>当然吐槽归吐槽，任务还是要完成的。<br>具]]>
@@ -145,7 +145,7 @@
 <p>哈哈哈哈，完美解决所有问题。之后还可以扩展。<br><img src="https://github.com/waylife/blogimage/raw/master/common/quick_run.gif" alt=" "><br><img src="https://github.com/waylife/blogimage/raw/master/common/simle_1.gif" alt=""></p>
 <p>本文来自<a href="http://waylife.github.io" target="_blank" rel="external">RxRead’s Blog</a>,欢迎转载，转载请注明。  </p>
 ]]></content:encoded>
-      <comments>http://blog.zanlabs.com/2014/10/27/appmall_highspeeddownload_and_app_invoke/#disqus_comments</comments>
+      <comments>http://blog.zanlabs.com/2014/10/27/appmall-highspeeddownload-and-app-invoke/#disqus_comments</comments>
     </item>
     
     <item>
