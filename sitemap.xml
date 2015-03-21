@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.zanlabs.com/about/resume-en.html</loc>
+    <lastmod>2015-03-21T06:16:49.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.zanlabs.com/about/resume.html</loc>
+    <lastmod>2015-03-21T06:16:38.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.zanlabs.com/404.html</loc>
     <lastmod>2015-03-14T14:08:16.000Z</lastmod>
   </url>
@@ -29,16 +39,6 @@
   <url>
     <loc>http://blog.zanlabs.com/luna/index.html</loc>
     <lastmod>2015-01-26T16:54:07.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.zanlabs.com/about/resume.html</loc>
-    <lastmod>2015-01-10T17:17:28.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.zanlabs.com/about/resume-en.html</loc>
-    <lastmod>2015-01-10T17:16:58.000Z</lastmod>
   </url>
   
   <url>
