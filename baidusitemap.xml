@@ -4,7 +4,7 @@
     
   <url>
     <loc>http://blog.zanlabs.com/2015/08/01/build-aapt-for-windows/</loc>
-    <lastmod>2015-08-01T13:19:00.000Z</lastmod>
+    <lastmod>2015-08-01T13:33:28.000Z</lastmod>
     <data>
         <display>
         <title>Build aapt for windows</title>
@@ -49,7 +49,7 @@
 <p>Then start the downloading.  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ repo sync</div></pre></td></tr></table></figure>
 
-<p>And wait for the downloading to end, about 33G when the time I downloaded it.<br>So better downloaded at night, then have a good sleep. When the time you wake up, things is ready.  </p>
+<p>And wait for the downloading to end, about 33G when the time I downloaded it.<br><img src="https://github.com/waylife/blogimage/raw/master/2015/08/01/android_sdk_source_count.png" alt="source size"><br>So better downloaded at night, then have a good sleep. When the time you wake up, things is ready.  </p>
 <h2 id="Install_mingw32">Install mingw32</h2>
 <p>For the build of windows’ exe and dll files.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> apt-get install mingw32 tofrodos</div></pre></td></tr></table></figure>
@@ -98,7 +98,7 @@
 <li><a href="http://www.cyberciti.biz/faq/ubuntu-linux-create-add-swap-file/" target="_blank" rel="external">http://www.cyberciti.biz/faq/ubuntu-linux-create-add-swap-file/</a></li>
 </ul>
 ]]></content>
-        <pubTime>2015-08-01T13:19:00.000Z</pubTime>
+        <pubTime>2015-08-01T13:33:28.000Z</pubTime>
         
          
               <breadCrumb title="Android" url="http://blog.zanlabs.com/tags/Android/"/>

@@ -7,14 +7,14 @@
     <link>http://blog.zanlabs.com/</link>
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[关注Android、WP、Java、C#、自我认知、程序安全等]]></description>
-    <pubDate>Sat, 01 Aug 2015 13:19:54 GMT</pubDate>
+    <pubDate>Sat, 01 Aug 2015 13:33:39 GMT</pubDate>
     <generator>http://zespia.tw/hexo/</generator>
     
     <item>
       <title><![CDATA[Build aapt for windows]]></title>
       <link>http://blog.zanlabs.com/2015/08/01/build-aapt-for-windows/</link>
       <guid>http://blog.zanlabs.com/2015/08/01/build-aapt-for-windows/</guid>
-      <pubDate>Sat, 01 Aug 2015 13:19:00 GMT</pubDate>
+      <pubDate>Sat, 01 Aug 2015 13:33:28 GMT</pubDate>
       <description>
       <![CDATA[<h1 id="Background">Background</h1>
 <p>In order to practise my english, I am trying to writing some posts in english. So if there some some ]]>
@@ -60,7 +60,7 @@
 <p>Then start the downloading.  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ repo sync</div></pre></td></tr></table></figure>
 
-<p>And wait for the downloading to end, about 33G when the time I downloaded it.<br>So better downloaded at night, then have a good sleep. When the time you wake up, things is ready.  </p>
+<p>And wait for the downloading to end, about 33G when the time I downloaded it.<br><img src="https://github.com/waylife/blogimage/raw/master/2015/08/01/android_sdk_source_count.png" alt="source size"><br>So better downloaded at night, then have a good sleep. When the time you wake up, things is ready.  </p>
 <h2 id="Install_mingw32">Install mingw32</h2>
 <p>For the build of windows’ exe and dll files.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> apt-get install mingw32 tofrodos</div></pre></td></tr></table></figure>
