@@ -2,6 +2,120 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     
+  <url>
+    <loc>http://blog.zanlabs.com/2015/08/01/build-aapt-for-windows/</loc>
+    <lastmod>2015-08-01T13:19:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>Build aapt for windows</title>
+        <content><![CDATA[<h1 id="Background">Background</h1>
+<p>In order to practise my english, I am trying to writing some posts in english. So if there some some typos, grammatical mistake and other mistakes, please feel free to point it out. I really appreciate it much. Thanks.</p>
+<p>For some reasons, I decided to compile the appt from scratch.<br>Target: <strong>aapt for windows.</strong><br>Then I moved on.<br>However,It’s somehow ridiculous, if we want to  build aapt for windows we have to build it on linux according to the official manual.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Full Windows SDK builds are only supported on Linux -- most of the framework is not designed to be built on Windows so technically the Windows SDK is build on top of a Linux SDK where a few binaries are replaced.</div><div class="line">http://tools.android.com/build</div></pre></td></tr></table></figure>
+
+<p>It is said that Firefox for android also has to be built on *unix system. But it has nothing to do with this article.</p>
+<h1 id="Steps">Steps</h1>
+<p>Anyway, let’s do it step by step.</p>
+<h2 id="Install_Linux">Install Linux</h2>
+<p>First Install Linux 64 bit(important, other versions may be different with this post), I chose the  ubuntu-14.04.2-desktop.<br><a href="http://releases.ubuntu.com/14.04.2/ubuntu-14.04.2-desktop-amd64.iso.torrent" target="_blank" rel="external">http://releases.ubuntu.com/14.04.2/ubuntu-14.04.2-desktop-amd64.iso.torrent</a><br>I encountered the low screen resolution in Ubuntu, as installed it on a virtual machine. Eventually solved it through this link.<a href="http://www.linuxbsdos.com/2014/10/31/solutions-for-low-screen-resolution-in-ubuntu-14-0414-10-and-virtualbox/" target="_blank" rel="external">http://www.linuxbsdos.com/2014/10/31/solutions-for-low-screen-resolution-in-ubuntu-14-0414-10-and-virtualbox/</a></p>
+<h2 id="Install_jdk">Install jdk</h2>
+<p>Install Java 7: For the latest version of Android</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> apt-get update</div><div class="line">$ <span class="built_in">sudo</span> apt-get install openjdk-<span class="number">7</span>-jdk</div></pre></td></tr></table></figure>
+
+<p>Optionally, update the default Java version by running:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> update-alternatives --config java</div><div class="line">$ <span class="built_in">sudo</span> update-alternatives --config javac</div></pre></td></tr></table></figure>
+
+<h2 id="Install_some_necessary_tools">Install some necessary tools</h2>
+<p>Install some other necessary tools.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> apt-get install bison g++-multilib git gperf libxml2-utils make python-networkx zlib1g-dev:i386 zip</div></pre></td></tr></table></figure>
+
+<p>Something wrong happens.<br><em>The following packages have unmet dependencies:<br> g++-multilib : Depends: gcc-multilib (&gt;= 4:4.8.2-1ubuntu6) but it is not going to be installed<br>                Depends: g++ (&gt;= 4:4.8.2-1ubuntu6) but it is not going to be installed<br>E: Unable to correct problems, you have held broken packages.</em><br><a href="http://www.cnblogs.com/wanyuanchun/p/3738938.html" target="_blank" rel="external">http://www.cnblogs.com/wanyuanchun/p/3738938.html</a></p>
+<p>So intall gcc-multilib and g++ first.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> apt-get install gcc-multilib g++</div></pre></td></tr></table></figure>
+
+<h2 id="Install_repo_and_download_source">Install repo and download source</h2>
+<p>Install repo to download source<br><a href="http://source.android.com/source/downloading.html#installing-repo" target="_blank" rel="external">http://source.android.com/source/downloading.html#installing-repo</a>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ mkdir ~/bin</div><div class="line">$ PATH=~/bin:<span class="variable">$PATH</span></div><div class="line">$ curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</div><div class="line">$ chmod a+x ~/bin/repo</div></pre></td></tr></table></figure>
+
+<p>config git  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.email <span class="string">"you@example.com"</span></div><div class="line">$ git config --global user.name <span class="string">"Your Name"</span></div></pre></td></tr></table></figure>
+
+<p>init source  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mkdir ~/android</div><div class="line">$ repo init -u https://android.googlesource.com/platform/manifest -b master -g all,-notdefault,tools</div></pre></td></tr></table></figure>
+
+<p>For guys in mainland China, you should try the command below, for two reason one is  Google is blocked ,the other is it more faster.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ repo init -u git://aosp.tuna.tsinghua.edu.cn/android/platform/manifest -b master -g all,-notdefault,tools</div></pre></td></tr></table></figure>
+
+<p>Then start the downloading.  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ repo sync</div></pre></td></tr></table></figure>
+
+<p>And wait for the downloading to end, about 33G when the time I downloaded it.<br>So better downloaded at night, then have a good sleep. When the time you wake up, things is ready.  </p>
+<h2 id="Install_mingw32">Install mingw32</h2>
+<p>For the build of windows’ exe and dll files.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> apt-get install mingw32 tofrodos</div></pre></td></tr></table></figure>
+
+<h2 id="Compile_the_source">Compile the source</h2>
+<p>When source downloaded, we can compile it now.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/android</div><div class="line">$ . build/envsetup.sh</div><div class="line">$ lunch sdk-eng</div><div class="line">$ make win_sdk</div></pre></td></tr></table></figure>
+
+<p>Note that this will build both a Linux SDK and a Windows SDK.<br>The result is located at out/host/windows/sdk/android-sdk_eng.${USER}_windows/<br>If you encounter error,<em>“error while loading shared libraries: libncurses.so.5”. </em><br>Install lib32ncurses5, then use make win_sdk to build it again.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> apt-get install lib32ncurses5</div></pre></td></tr></table></figure>
+
+<p>Later I got  another error when building libwebviewchromium.<br><em>“collect2: error: ld terminated with signal 9 [Killed]<br>make: **</em> [out/target/product/generic/obj/SHA-j4 win-sdkRED_LIBRARIES/libwebviewchromium_intermediates/LINKED/libwebviewchromium.so] Error 1 “*<br>This because the system do not have a swap file.    Let’s create it.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ dd <span class="keyword">if</span>=/dev/zero of=/swapfile bs=<span class="number">1</span>G count=<span class="number">2</span></div></pre></td></tr></table></figure>
+
+<p>Verify that file has been created on the server:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls -lh /swapfile</div></pre></td></tr></table></figure>
+
+<p>Type the following chmod command and chown command to secure and set correct file permission for security reasons.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> chown root:root /swapfile</div><div class="line"><span class="built_in">sudo</span> chmod <span class="number">0600</span> /swapfile</div></pre></td></tr></table></figure>
+
+<p>Turn on the swap file  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> mkswap /swapfile</div><div class="line"><span class="built_in">sudo</span> swapon /swapfile</div></pre></td></tr></table></figure>
+
+<p>Verify new swap file and settings on Ubuntu</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">swapon <span class="operator">-s</span></div></pre></td></tr></table></figure>
+
+<p>Now we can build the window sdk.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make win_sdk</div></pre></td></tr></table></figure>
+
+<p>After some hours, which depends on your machine, all things will finish.<br>We can get appt.exe from the out folder.  </p>
+<p>If ou  only want to compile some tools, not all of them.<br>Just Do below.<br>For linux:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> make aapt</div></pre></td></tr></table></figure>
+
+<p>For windows(Please execute make aapt first to generate some libraries):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> USE_MINGW=<span class="number">1</span> make aapt</div></pre></td></tr></table></figure>
+
+<h1 id="More">More</h1>
+<p>For custom needs, you can modify the source and rebuild it.<br>Due to NDA(Non-Disclosure Agreement), I skip this chapter.  </p>
+<h1 id="References">References</h1>
+<ul>
+<li><a href="http://www.timelesssky.com/blog/building-android-sdk-build-tools-aapt-for-debian-arm" target="_blank" rel="external">http://www.timelesssky.com/blog/building-android-sdk-build-tools-aapt-for-debian-arm</a></li>
+<li><a href="http://source.android.com/source/initializing.html#choosing-a-branch" target="_blank" rel="external">http://source.android.com/source/initializing.html#choosing-a-branch</a></li>
+<li><a href="https://android.googlesource.com/platform/sdk/+/master/docs/howto_build_SDK.txt" target="_blank" rel="external">https://android.googlesource.com/platform/sdk/+/master/docs/howto_build_SDK.txt</a></li>
+<li><a href="http://tools.android.com/build" target="_blank" rel="external">http://tools.android.com/build</a></li>
+<li><a href="http://source.android.com/source/using-repo.html" target="_blank" rel="external">http://source.android.com/source/using-repo.html</a></li>
+<li><a href="http://www.cyberciti.biz/faq/ubuntu-linux-create-add-swap-file/" target="_blank" rel="external">http://www.cyberciti.biz/faq/ubuntu-linux-create-add-swap-file/</a></li>
+</ul>
+]]></content>
+        <pubTime>2015-08-01T13:19:00.000Z</pubTime>
+        
+         
+              <breadCrumb title="Android" url="http://blog.zanlabs.com/tags/Android/"/>
+          
+              <breadCrumb title="aapt" url="http://blog.zanlabs.com/tags/aapt/"/>
+          
+              <breadCrumb title="Android source" url="http://blog.zanlabs.com/tags/Android-source/"/>
+          
+              <breadCrumb title="English Post" url="http://blog.zanlabs.com/tags/English-Post/"/>
+          
+              <breadCrumb title="Android" url="http://blog.zanlabs.com/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
     

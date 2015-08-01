@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.zanlabs.com/2015/08/01/build-aapt-for-windows/</loc>
+    <lastmod>2015-08-01T13:19:00.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.zanlabs.com/luna/2015_5_30_sogou-hackthon.html</loc>
     <lastmod>2015-05-31T17:07:17.000Z</lastmod>
   </url>
