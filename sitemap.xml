@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.zanlabs.com/about/resume-en.html</loc>
+    <lastmod>2015-08-23T15:05:03.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.zanlabs.com/about/resume.html</loc>
+    <lastmod>2015-08-23T15:04:50.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.zanlabs.com/about/index.html</loc>
+    <lastmod>2015-08-23T14:59:11.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.zanlabs.com/2015/08/05/build-aapt-for-windows/</loc>
     <lastmod>2015-08-04T16:19:48.000Z</lastmod>
   </url>
@@ -14,16 +29,6 @@
   <url>
     <loc>http://blog.zanlabs.com/luna/index.html</loc>
     <lastmod>2015-05-31T16:05:10.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.zanlabs.com/about/resume-en.html</loc>
-    <lastmod>2015-03-21T13:22:25.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.zanlabs.com/about/resume.html</loc>
-    <lastmod>2015-03-21T06:16:38.000Z</lastmod>
   </url>
   
   <url>
@@ -49,11 +54,6 @@
   <url>
     <loc>http://blog.zanlabs.com/luna/summary_of_2014_and_look_forward_to_2015.html</loc>
     <lastmod>2015-02-01T05:51:03.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.zanlabs.com/about/index.html</loc>
-    <lastmod>2015-01-10T17:03:46.000Z</lastmod>
   </url>
   
   <url>
