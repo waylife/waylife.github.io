@@ -1,5 +1,9 @@
 layout: resume
 title: 王赟的简历
+date: 2015-09-04 02:50:54
+---
+layout: resume
+title: 王赟的简历
 ---
 
 # 王赟(waylife365#gmail.com)
