@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.zanlabs.com/404.html</loc>
+    <lastmod>2015-09-04T07:59:11.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.zanlabs.com/2014/10/27/appmall-highspeeddownload-and-app-invoke/</loc>
     <lastmod>2015-09-04T07:37:11.000Z</lastmod>
   </url>
@@ -59,11 +64,6 @@
   <url>
     <loc>http://blog.zanlabs.com/luna/index.html</loc>
     <lastmod>2015-05-31T16:05:10.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.zanlabs.com/404.html</loc>
-    <lastmod>2015-03-14T14:08:16.000Z</lastmod>
   </url>
   
   <url>
