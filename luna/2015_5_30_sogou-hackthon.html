@@ -1,0 +1,547 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>2015_5_30_搜狗-黑客马拉松 | RxRead&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="RxRead">
+    
+
+    
+    <meta name="description" content="序从5月中旬开始，自己就忙着找房子，终于在5.31签了中天置地（通过爱屋吉屋），希望之后不会出现什么问题。   写的脚本也没派上用途，除了抓到几个几天前的，可惜的是他们的都租出去了。唯一庆幸之处就是锻炼了下Python，也不失为一件好事。当然报名公司内举办的Hackthon时间还是比较早的，可惜一直忙于租房子，无暇顾及。  
+马拉松之前自己还在云笔记记录了下内部的一些建议，看到FB等各大公司举办类">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2015_5_30_搜狗-黑客马拉松">
+<meta property="og:url" content="http://blog.zanlabs.com/luna/2015_5_30_sogou-hackthon.html">
+<meta property="og:site_name" content="RxRead's Blog">
+<meta property="og:description" content="序从5月中旬开始，自己就忙着找房子，终于在5.31签了中天置地（通过爱屋吉屋），希望之后不会出现什么问题。   写的脚本也没派上用途，除了抓到几个几天前的，可惜的是他们的都租出去了。唯一庆幸之处就是锻炼了下Python，也不失为一件好事。当然报名公司内举办的Hackthon时间还是比较早的，可惜一直忙于租房子，无暇顾及。  
+马拉松之前自己还在云笔记记录了下内部的一些建议，看到FB等各大公司举办类">
+<meta property="og:updated_time" content="2015-09-04T07:19:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2015_5_30_搜狗-黑客马拉松">
+<meta name="twitter:description" content="序从5月中旬开始，自己就忙着找房子，终于在5.31签了中天置地（通过爱屋吉屋），希望之后不会出现什么问题。   写的脚本也没派上用途，除了抓到几个几天前的，可惜的是他们的都租出去了。唯一庆幸之处就是锻炼了下Python，也不失为一件好事。当然报名公司内举办的Hackthon时间还是比较早的，可惜一直忙于租房子，无暇顾及。  
+马拉松之前自己还在云笔记记录了下内部的一些建议，看到FB等各大公司举办类">
+<meta name="twitter:creator" content="@waylife365">
+
+    
+    <link rel="alternative" href="/rss.xml" title="RxRead&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="RxRead&#39;s Blog" title="RxRead&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="RxRead&#39;s Blog">RxRead&#39;s Blog</a></h1>
+				<h2 class="blog-motto">关注Android、WP、Java、C#、自我认知、程序安全等</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/about/resume.html">Resume</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/luna/2015_5_30_sogou-hackthon.html" title="2015_5_30_搜狗-黑客马拉松" itemprop="url">2015_5_30_搜狗-黑客马拉松</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="RxRead" target="_blank" itemprop="author">RxRead</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-04T07:19:43.000Z" itemprop="datePublished"> 发表于 Sep 4 2015</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#序"><span class="toc-number">1.</span> <span class="toc-text">序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#马拉松"><span class="toc-number">2.</span> <span class="toc-text">马拉松</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="序">序</h1><p>从5月中旬开始，自己就忙着找房子，终于在5.31签了中天置地（通过爱屋吉屋），希望之后不会出现什么问题。   写的脚本也没派上用途，除了抓到几个几天前的，可惜的是他们的都租出去了。唯一庆幸之处就是锻炼了下Python，也不失为一件好事。<br>当然报名公司内举办的Hackthon时间还是比较早的，可惜一直忙于租房子，无暇顾及。  </p>
+<h1 id="马拉松">马拉松</h1><p>之前自己还在云笔记记录了下内部的一些建议，看到FB等各大公司举办类似活动，希望自己公司也举办，但邮件没发出去。<br>没想到的是半年之后，公司居然开展了这个活动，那果断参加啊，关键一等奖是大疆无人机。<br>比赛方向是：1.公司产品创新；2.办公流程优化；3.新产品。<br>每组3-6人，我们凑齐了5个人，2个Android前端，1产品，1后端（兼职前端），1UI。<br>从昨天5.30-9:00到5.31-11:30，将近26h。31号12：39左右开始评审，然后自己组止步于第一轮，可惜。  </p>
+<h1 id="总结">总结</h1><p>由于时间比较晚，也比较困，就大致归纳下吧。  </p>
+<ul>
+<li>准备不充分。有些组已经提前开始了，而我们组开始前2小时居然还在配置环境。  </li>
+<li>产品方向。做的是为儿童提供找朋友、找活动的功能，大家都没想好该怎么做，没想到怎么去解决一个痛点。</li>
+<li>UI。说实话，第一眼，看到UI，吓我一跳。但是加入了，还是要完成任务啊。当然PPT做的很棒。</li>
+<li>态度。最开始碍于面子，没有提出问题，对于整个项目都是不好的。</li>
+</ul>
+<p>有90多组参加比赛，16组进入第二轮。最后获奖的为一等奖穿衣搭配，二等奖输入法人间指南和懒人跑步，三等奖输入法情侣版本，四等奖新概念滑行输入法和食图，五等奖老伴。<br>获奖的更多是结合搜狗自有产品进行创新，更多的是创新点，而实现倒是其次。<br>之前想做用输入法来做跨平台的表情同步，但是觉得没实力搞就没做，可惜啊，可惜。  </p>
+<p>最后，谢谢整个团队所有成员，挑灯夜战，度过了一个难忘的周末！</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://blog.zanlabs.com/luna/2015_5_30_sogou-hackthon.html" data-title="2015_5_30_搜狗-黑客马拉松 | RxRead&#39;s Blog" data-tsina="723678706" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="luna/2015_5_30_sogou-hackthon.html" data-title="2015_5_30_搜狗-黑客马拉松" data-url="http://blog.zanlabs.com/luna/2015_5_30_sogou-hackthon.html"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#序"><span class="toc-number">1.</span> <span class="toc-text">序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#马拉松"><span class="toc-number">2.</span> <span class="toc-text">马拉松</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="rsspart">
+	<a href="/rss.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shortcut/" title="shortcut">shortcut<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网页抓取/" title="网页抓取">网页抓取<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/aapt/" title="aapt">aapt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android-source/" title="Android source">Android source<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/English-Post/" title="English Post">English Post<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网页调起应用/" title="网页调起应用">网页调起应用<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/自定义协议/" title="自定义协议">自定义协议<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/技术/" title="技术">技术<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/快捷方式/" title="快捷方式">快捷方式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Web/" title="Web">Web<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网页/" title="网页">网页<sup>1</sup></a></li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://zh.lucida.me/" target="_blank" title="Lucida">Lucida</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://coolshell.cn/" target="_blank" title="酷壳">酷壳</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yinwang.org/" target="_blank" title="王垠">王垠</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.trinea.cn/" target="_blank" title="Trinea">Trinea</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.csdn.net/luoshengyang" target="_blank" title="老罗的Android之旅">老罗的Android之旅</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hexo.io" target="_blank" title="hexo">hexo</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Android 攻城师一枚 <br/>
+			About Android, Java, etc.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/waylife365" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/waylife" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/1872596" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		<a href="https://twitter.com/waylife365" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		<a href="https://www.linkedin.com/in/wangyunchina" target="_blank" class="icon-linkedin" title="linkedin"></a>
+		
+		
+		
+		<a href="http://www.zhihu.com/people/waylife365" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:waylife365@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="RxRead">RxRead</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"rxreadblog"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-56165343-2', 'blog.zanlabs.com');  
+ga('send', 'pageview');
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd498413594cb604871ba04a65bdc6f2d' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+

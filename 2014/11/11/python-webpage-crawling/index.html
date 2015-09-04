@@ -1,0 +1,618 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Python抓取单个网页中所有的PDF文档 | RxRead&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="RxRead">
+    
+
+    
+    <meta name="description" content="1.背景最近发现算法以及数据结构落下了不少（其实还是大学没怎么好好学，囧rz），考虑到最近的项目结构越来越复杂了，用它来练练思路，就打算复习下数据结构与算法。结合最近在学英语，然后干脆就用英文喽。然后选定一本参考书籍《Data Structures and Algorithms in Java》。刚开始看还是蛮吃力的，慢慢来。由于之前有翻录书籍附录的习惯，于是就去书籍附带的官网看了下，发现http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python抓取单个网页中所有的PDF文档">
+<meta property="og:url" content="http://blog.zanlabs.com/2014/11/11/python-webpage-crawling/index.html">
+<meta property="og:site_name" content="RxRead's Blog">
+<meta property="og:description" content="1.背景最近发现算法以及数据结构落下了不少（其实还是大学没怎么好好学，囧rz），考虑到最近的项目结构越来越复杂了，用它来练练思路，就打算复习下数据结构与算法。结合最近在学英语，然后干脆就用英文喽。然后选定一本参考书籍《Data Structures and Algorithms in Java》。刚开始看还是蛮吃力的，慢慢来。由于之前有翻录书籍附录的习惯，于是就去书籍附带的官网看了下，发现http">
+<meta property="og:updated_time" content="2015-09-04T07:15:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python抓取单个网页中所有的PDF文档">
+<meta name="twitter:description" content="1.背景最近发现算法以及数据结构落下了不少（其实还是大学没怎么好好学，囧rz），考虑到最近的项目结构越来越复杂了，用它来练练思路，就打算复习下数据结构与算法。结合最近在学英语，然后干脆就用英文喽。然后选定一本参考书籍《Data Structures and Algorithms in Java》。刚开始看还是蛮吃力的，慢慢来。由于之前有翻录书籍附录的习惯，于是就去书籍附带的官网看了下，发现http">
+<meta name="twitter:creator" content="@waylife365">
+
+    
+    <link rel="alternative" href="/rss.xml" title="RxRead&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="RxRead&#39;s Blog" title="RxRead&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="RxRead&#39;s Blog">RxRead&#39;s Blog</a></h1>
+				<h2 class="blog-motto">关注Android、WP、Java、C#、自我认知、程序安全等</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/about/resume.html">Resume</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/11/11/python-webpage-crawling/" title="Python抓取单个网页中所有的PDF文档" itemprop="url">Python抓取单个网页中所有的PDF文档</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="RxRead" target="_blank" itemprop="author">RxRead</a>
+		
+  <p class="article-time">
+    <time datetime="2014-11-11T13:49:53.000Z" itemprop="datePublished"> 发表于 Nov 11 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-背景"><span class="toc-number">1.</span> <span class="toc-text">1.背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-实现"><span class="toc-number">2.</span> <span class="toc-text">2.实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-优化"><span class="toc-number">3.</span> <span class="toc-text">3.优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-附录"><span class="toc-number">4.</span> <span class="toc-text">4.附录</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="1-背景">1.背景</h1><p>最近发现算法以及数据结构落下了不少（其实还是大学没怎么好好学，囧rz），考虑到最近的项目结构越来越复杂了，用它来练练思路，就打算复习下数据结构与算法。结合最近在学英语，然后干脆就用英文喽。然后选定一本参考书籍《Data Structures and Algorithms in Java》。<br>刚开始看还是蛮吃力的，慢慢来。由于之前有翻录书籍附录的习惯，于是就去书籍附带的官网看了下，发现<a href="http://ww0.java4.datastructures.net/handouts/" target="_blank" rel="external">http://ww0.java4.datastructures.net/handouts/</a> 里面附带的PDF文档居然不错，图文并茂，作为理解是个不错的材料，果断要下载啊。但是，尼玛，结果发现，好多个，这一个一个另存为真是要命，想想还是用什么办法下载下来吧。</p>
+<h1 id="2-实现">2.实现</h1><p>考虑目前学过的了解的所有语言，可以用来实现的，排列一下程度：</p>
+<ol>
+<li>Java/Android  熟悉</li>
+<li>C# 熟悉</li>
+<li>Python 了解语法</li>
+<li>Javascript 了解一些  </li>
+<li>C/C++ 了解语法</li>
+</ol>
+<p>为了实现这个，当然是最简单最快最好了。考虑到大学一直用C#，要不用它？但发现OSX平台只能用Mono了，还得重新熟悉。Java实现也不快，从需要的时间考虑。Javascript不熟，貌似可以用node.js去写(atom就是用的它)。不熟。C/C++好多年没用过了，而且，实现起来代码一大堆，特别麻烦。再考虑之前一段时间正好在Codecademy学过语法，就拿它来练手吧。<br>OK，确定了用Python。后续就是怎么去请求网络了，解析网页html标签，提取下载链接，下载文件了。虽然不懂这些在Python里面是怎么实现的，但是流程是确定的，按照流程去网站找现成的，此处不研究原理，实现功能即可。<br>接下来就是各种搜索引擎搜索东西了，Google可，百度亦可（不同引擎侧重不一样）。不要忘了目的是什么，搜索相关的资料。<br>好了，搜索之后，确定请求网络下载网页用requests，解析html用BeautifulSoup，提取下载链接BeautifulSoup，下载文档（stackoverflow中找到了一段下载文件的代码）。<br>然后就是把她们一起组合了。组合之后的代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#file-name: pdf_download.py</span></span><br><span class="line">__author__ = <span class="string">'rxread'</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download_file</span><span class="params">(url, index)</span>:</span></span><br><span class="line">    local_filename = index+<span class="string">"-"</span>+url.split(<span class="string">'/'</span>)[-<span class="number">1</span>]</span><br><span class="line">    <span class="comment"># NOTE the stream=True parameter</span></span><br><span class="line">    r = requests.get(url, stream=<span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">with</span> open(local_filename, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> chunk <span class="keyword">in</span> r.iter_content(chunk_size=<span class="number">1024</span>):</span><br><span class="line">            <span class="keyword">if</span> chunk: <span class="comment"># filter out keep-alive new chunks</span></span><br><span class="line">                f.write(chunk)</span><br><span class="line">                f.flush()</span><br><span class="line">    <span class="keyword">return</span> local_filename</span><br><span class="line"></span><br><span class="line"><span class="comment">#http://ww0.java4.datastructures.net/handouts/</span></span><br><span class="line">root_link=<span class="string">"http://ww0.java4.datastructures.net/handouts/"</span></span><br><span class="line">r=requests.get(root_link)</span><br><span class="line"><span class="keyword">if</span> r.status_code==<span class="number">200</span>:</span><br><span class="line">    soup=BeautifulSoup(r.text)</span><br><span class="line">    <span class="comment"># print soup.prettify()</span></span><br><span class="line">    index=<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> soup.find_all(<span class="string">'a'</span>):</span><br><span class="line">        new_link=root_link+link.get(<span class="string">'href'</span>)</span><br><span class="line">        <span class="keyword">if</span> new_link.endswith(<span class="string">".pdf"</span>):</span><br><span class="line">            file_path=download_file(new_link,str(index))</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"downloading:"</span>+new_link+<span class="string">" -&gt; "</span>+file_path</span><br><span class="line">            index+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"all download finished"</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"errors occur."</span></span><br></pre></td></tr></table></figure></p>
+<p>运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python pdf_download.py</span><br></pre></td></tr></table></figure></p>
+<p>便可以把所有的pdf文档下载到本地。</p>
+<h1 id="3-优化">3.优化</h1><p>30多行代码，全部搞定，真是简洁明了，果然做Python用来一些脚本任务还是不错的。利用它下载了41个文档。<br>最开始下载下来的文档没有序号，这样看的时候就不知道先后，于是我给文件名前面加了个序号。<br>其他的优化部分可以参考如下：</p>
+<ol>
+<li>考虑现在函数的一些异常出错没有处理，后续需要处理。</li>
+<li>函数没有完全封装，下载的文件类型支持不多，这个后续可以根据自己的需求进行扩展。  </li>
+<li>下载的文件少的时候可能这样就行了，但是文件多的话，是有必要使用多个线程（适量的数量）或者线程池去下载，从而加快下载速度。  </li>
+<li>有些写法可能不符合python语法规范，当然写了与没写已经是0和1的区别了。</li>
+<li>其他细节，比如pdf有可能是大写的PDF。  </li>
+</ol>
+<h1 id="4-附录">4.附录</h1><ol>
+<li>《Data Structures and Algorithms in Java》(Michael T. Goodrich, Roberto Tamassia)下载 <a href="http://bookzz.org/" target="_blank" rel="external">http://bookzz.org/</a> 或者 <a href="http://it-ebooks.info/" target="_blank" rel="external">http://it-ebooks.info/</a><br>以下两个网站都是不错的书籍下载网站，有条件还是买本正版书籍支持一下作者吧。<br>一般我会先下载电子书看下，合适就买纸质版。  </li>
+<li>Python语法入门 <a href="http://www.codecademy.com/zh/tracks/python" target="_blank" rel="external">http://www.codecademy.com/zh/tracks/python</a>  </li>
+</ol>
+<p>以上，便是如此了。  </p>
+<p>本文来自<a href="&quot;http://waylife.github.io&quot;">RxRead’s Blog</a>,欢迎转载，转载请注明。<br>欢迎一起交流探讨。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python/">Python</a><a href="/tags/技术/">技术</a><a href="/tags/爬虫/">爬虫</a><a href="/tags/网页抓取/">网页抓取</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://blog.zanlabs.com/2014/11/11/python-webpage-crawling/" data-title="Python抓取单个网页中所有的PDF文档 | RxRead&#39;s Blog" data-tsina="723678706" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/01/02/add-resume-type-to-hexo-under-pacman-theme/" title="Pacman主题下给Hexo增加简历类型">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Pacman主题下给Hexo增加简历类型</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/10/27/appmall-highspeeddownload-and-app-invoke/"  title="应用市场高速下载以及网页端调起APP页面研究与实现">
+ <strong>下一篇：</strong><br/> 
+ <span>应用市场高速下载以及网页端调起APP页面研究与实现
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2014/11/11/python-webpage-crawling/" data-title="Python抓取单个网页中所有的PDF文档" data-url="http://blog.zanlabs.com/2014/11/11/python-webpage-crawling/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-背景"><span class="toc-number">1.</span> <span class="toc-text">1.背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-实现"><span class="toc-number">2.</span> <span class="toc-text">2.实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-优化"><span class="toc-number">3.</span> <span class="toc-text">3.优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-附录"><span class="toc-number">4.</span> <span class="toc-text">4.附录</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="rsspart">
+	<a href="/rss.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shortcut/" title="shortcut">shortcut<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网页抓取/" title="网页抓取">网页抓取<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/aapt/" title="aapt">aapt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android-source/" title="Android source">Android source<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/English-Post/" title="English Post">English Post<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网页调起应用/" title="网页调起应用">网页调起应用<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/自定义协议/" title="自定义协议">自定义协议<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/技术/" title="技术">技术<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/快捷方式/" title="快捷方式">快捷方式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Web/" title="Web">Web<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网页/" title="网页">网页<sup>1</sup></a></li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://zh.lucida.me/" target="_blank" title="Lucida">Lucida</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://coolshell.cn/" target="_blank" title="酷壳">酷壳</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yinwang.org/" target="_blank" title="王垠">王垠</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.trinea.cn/" target="_blank" title="Trinea">Trinea</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.csdn.net/luoshengyang" target="_blank" title="老罗的Android之旅">老罗的Android之旅</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hexo.io" target="_blank" title="hexo">hexo</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Android 攻城师一枚 <br/>
+			About Android, Java, etc.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/waylife365" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/waylife" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/1872596" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		<a href="https://twitter.com/waylife365" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		<a href="https://www.linkedin.com/in/wangyunchina" target="_blank" class="icon-linkedin" title="linkedin"></a>
+		
+		
+		
+		<a href="http://www.zhihu.com/people/waylife365" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:waylife365@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="RxRead">RxRead</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"rxreadblog"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-56165343-2', 'blog.zanlabs.com');  
+ga('send', 'pageview');
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd498413594cb604871ba04a65bdc6f2d' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
+
