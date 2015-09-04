@@ -4,7 +4,7 @@ categories: Android
 tags: [Android,aapt,Android source,English Post]
 ---
 
-#Background
+# Background
 In order to practise my english, I am trying to writing some posts in english. So this article may confuse some people, I'm really sorry for that. By the way, if there some some typos, grammatical mistake and other mistakes, please feel free to point it out. I really appreciate it much. Thanks.
 
 
@@ -17,14 +17,14 @@ Full Windows SDK builds are only supported on Linux -- most of the framework is 
 http://tools.android.com/build
 ```
 It is said that Firefox for android also has to be built on \*unix system. But it has nothing to do with this article.
-#Steps
+# Steps
 Anyway, let’s do it step by step.
-##Install Linux
+## Install Linux
 First Install Linux 64 bit(important, other versions may be different with this post), I chose the  ubuntu-14.04.2-desktop.
 http://releases.ubuntu.com/14.04.2/ubuntu-14.04.2-desktop-amd64.iso.torrent
 I encountered the low screen resolution in Ubuntu, as installed it on a virtual machine. Eventually solved it through this link.http://www.linuxbsdos.com/2014/10/31/solutions-for-low-screen-resolution-in-ubuntu-14-0414-10-and-virtualbox/
 
-##Install jdk
+## Install jdk
 Install Java 7: For the latest version of Android
 ``` bash
 $ sudo apt-get update
@@ -36,7 +36,7 @@ $ sudo update-alternatives --config java
 $ sudo update-alternatives --config javac
 ```
 
-##Install some necessary tools
+## Install some necessary tools
 Install some other necessary tools.
 ``` bash
 $ sudo apt-get install bison g++-multilib git gperf libxml2-utils make python-networkx zlib1g-dev:i386 zip
@@ -52,7 +52,7 @@ So intall gcc-multilib and g++ first.
 ``` bash
 $ sudo apt-get install gcc-multilib g++
 ```
-##Install repo and download source
+## Install repo and download source
 Install repo to download source
 http://source.android.com/source/downloading.html#installing-repo  
 ``` bash
@@ -84,12 +84,12 @@ And wait for the downloading to end, about 33G when the time I downloaded it.
 ![source size][1]
 So better downloaded at night, then have a good sleep. When the time you wake up, things is ready.  
 
-##Install mingw32
+## Install mingw32
 For the build of windows' exe and dll files.
 ``` bash
 $ sudo apt-get install mingw32 tofrodos
 ```
-##Compile the source
+## Compile the source
 When source downloaded, we can compile it now.
 ``` bash
 $ cd ~/android
@@ -150,11 +150,11 @@ For windows(Please execute make aapt first to generate some libraries):
 sudo USE_MINGW=1 make aapt
 ```
 
-#More
+# More
 For custom needs, you can modify the source and rebuild it.  
 Due to NDA(Non-Disclosure Agreement), I skip this chapter.  
 
-#References
+# References
 - http://www.timelesssky.com/blog/building-android-sdk-build-tools-aapt-for-debian-arm
 -  http://source.android.com/source/initializing.html#choosing-a-branch
 - https://android.googlesource.com/platform/sdk/+/master/docs/howto_build_SDK.txt

@@ -10,7 +10,7 @@ tags: [Android,shortcut,快捷方式]
 红包助手还有一些问题，但是现在基本的抢红包基本没问题了。目前正在对它进行优化以及较低版本的一些适配，还有项目的国际化工作。
 废话不多说了，下面是Andrioid开发过程中快捷方式相关的事与坑。
 数据来源于上次组内自己的CodeReview总结。
-#背景
+# 背景
 一般情况下，为了让用户更方便的打开应用，程序会在桌面上生成一些快捷方式。
 本来呢，如果是原生的桌面，其实是十分简单，直接调用系统相关的API就行了。但是众多的系统厂商以及众多第三方自己定制的桌面（Launcher），导致在适配、兼容方面存在很多问题。  
 比如，有些桌面无法删除快捷方式（比如小米），有些桌面无法生成快捷方式（比如锤子），有些系统无法更新桌面图标（比如华为荣耀6）。  
@@ -21,8 +21,8 @@ tags: [Android,shortcut,快捷方式]
 两个intent数据如下
 ![ ](https://github.com/waylife/blogimage/raw/master/2015/03/14/shorcut_intent.png)
 数据可以通过SQLite Editor查看，需要已经ROOT的手机  
-#实现
-##增加快捷方式
+# 实现
+## 增加快捷方式
 在AndroidManifest.xml增加权限
 ``` bash
 <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
@@ -32,7 +32,7 @@ tags: [Android,shortcut,快捷方式]
 ![ ](https://github.com/waylife/blogimage/raw/master/2015/03/14/shortcut_add.jpg)
 ![ ](https://github.com/waylife/blogimage/raw/master/2015/03/14/shortcut_add_2.jpg)
 
-##删除快捷方式
+## 删除快捷方式
 跟增加快捷方式一样，也是需要增加权限的。加上
 ``` bash
 <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
@@ -40,7 +40,7 @@ tags: [Android,shortcut,快捷方式]
 相关代码：
 ![ ](https://github.com/waylife/blogimage/raw/master/2015/03/14/shortcut_delete.jpg)
 
-##快捷方式修改
+## 快捷方式修改
 需要增加权限
 ``` bash
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
@@ -126,7 +126,7 @@ tags: [Android,shortcut,快捷方式]
  }
 ```
 
-##快捷方式存在判断
+## 快捷方式存在判断
 需要增加的权限同修改快捷方式  
 虽然说通过SharePreference来保证快捷方式不会重复创建，以及通过shortcutIntent.putExtra("duplicate", false)也可以确保，但是为了万无一失，还是可以通过去查询数据判断快捷方式是否存在，来避免重复创建。   代码如下：
 ``` java
@@ -228,11 +228,11 @@ tags: [Android,shortcut,快捷方式]
   return result;
  }
 ```
-#兼容与注意事项
-##兼容
+# 兼容与注意事项
+## 兼容
 所有的快捷方式Intent如果不是之前版本的存在很大问题，绝对不要改变参数，否则升级或者降级时快捷方式会出现问题；
 同时，尽可能的采用隐式调用，自定义CATEGORY，而不是自定义ACTION，ACTION参数一定要为ACTION_MAIN，否则有些手机在卸载时无法删除快捷方式（WTF）。
-##注意事项
+## 注意事项
 - 【所有】activity路径的变更导致老版本升级之后快捷方式无法使用
 --> 1.一旦使用确定了activity的包路径，之后就不要再变更；  
   --> 2.尽可能使用隐式调用，但是如果之前已经发出去的版本，为了兼容性，就必须一直使用老的方式，新版本的尽可能的不要更改方式，如果用户降级，老版本快捷方式会无法使用。  
@@ -248,13 +248,13 @@ tags: [Android,shortcut,快捷方式]
 --> 无解，尝试过重启Launcher，但是结果是之前的快捷方式也消失了。只有重启手机，按理来说应该是有方式触发Launcher进行刷新的。
 以上【所有】【部分】，分别表示必定出现，部分出现。  
 
-  
-#参考
+
+# 参考
 1.  http://grepcode.com/search/?query=InstallShortcutReceiver
 2.  http://developer.android.com/index.html
 
 
-#附录
+# 附录
 1. 完整代码可参考
 https://gist.github.com/waylife/437a3d98a84f245b9582
 2. 通用更新快捷方式权限列表

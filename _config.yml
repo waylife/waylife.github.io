@@ -79,7 +79,7 @@ disqus_shortname:
 # Extensions
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
-theme: pacman
+theme: jacman
 exclude_generator:
 
 Plugins:
@@ -104,10 +104,10 @@ feed:
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: github
+  type: git
   repo: https://github.com/waylife/waylife.github.io.git
   branch: master
-  message:
+  message: 
 
 #alias
 #this is not a universal usage, should upgrade later
