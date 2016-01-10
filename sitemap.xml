@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.zanlabs.com/2016/01/10/build-aapt-for-windows/</loc>
+    <lastmod>2016-01-10T14:33:19.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.zanlabs.com/luna/2015_12_07_bye_beijing_hey_shenzhen.html</loc>
+    <lastmod>2015-11-18T18:06:44.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.zanlabs.com/luna/index.html</loc>
+    <lastmod>2015-11-18T18:00:09.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.zanlabs.com/about/resume.html</loc>
     <lastmod>2015-09-10T16:15:06.000Z</lastmod>
   </url>
@@ -52,18 +67,8 @@
   </url>
   
   <url>
-    <loc>http://blog.zanlabs.com/2015/09/04/build-aapt-for-windows/</loc>
-    <lastmod>2015-09-04T07:13:36.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://blog.zanlabs.com/2014/09/20/hello-world/</loc>
     <lastmod>2015-09-03T16:19:19.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.zanlabs.com/luna/index.html</loc>
-    <lastmod>2015-05-31T16:05:10.000Z</lastmod>
   </url>
   
   <url>
